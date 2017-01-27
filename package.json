@@ -1,0 +1,23 @@
+{
+  "name": "sensor-server",
+  "version": "1.0.0",
+  "description": "server for dht11 sensor attached to sep-12",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "iot",
+    "sensor",
+    "esp8266",
+    "temperature",
+    "humidity"
+  ],
+  "author": "kot9pko",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.21"
+  }
+}
