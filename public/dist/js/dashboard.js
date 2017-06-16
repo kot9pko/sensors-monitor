@@ -72,6 +72,52 @@ update_canvas = function(data) {
 
     console.log(sensor_chart)
 
-}
+};
 
-update_graphs();
+switch_roz_on = function() {
+    $.ajax({
+        type: "POST",
+        url: "/roz_on",
+        success: function(data) {
+            if (data.error) {       // if server replied an error,
+                return;     // that's all
+            }
+            $('#roz_box').removeClass('roz_turned_off').addClass('roz_turned_on');
+        }
+    });
+};
+
+switch_roz_off = function() {
+    $.ajax({
+        type: "POST",
+        url: "/roz_off",
+        data: "",
+        success: function(data) {
+            if (data.error) {       // if server replied an error,
+                return;     // that's all
+            }
+            $('#roz_box').removeClass('roz_turned_on').addClass('roz_turned_off');
+        }
+    });
+};
+
+roz_status = function() {
+    $.ajax({
+        type: "POST",
+        url: "/roz_status",
+        success: function(data) {
+            if (data.error) {       // if server replied an error,
+                return;     // that's all
+            }
+            $('#roz_box').removeClass('roz_turned_on').addClass('roz_turned_off');
+        }
+    });
+};
+
+$(document).ready(function() {
+
+    update_graphs();
+    $(document).on("click", "#roz_on", switch_roz_on);
+    $(document).on("click", "#roz_off", switch_roz_off);
+
+});

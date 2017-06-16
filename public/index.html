@@ -30,6 +30,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  
+  <style>
+  .roz_turned_off {
+    background-color: #333333;
+  }
+  .roz_turned_on {
+    background-color: #ffff7f;
+  }
+  </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -51,7 +60,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -86,10 +95,9 @@ desired effect
 
       <!-- search form (was here) -->
 
-      <!-- Sidebar Menu -->
+      <!-- Sidebar Menu 
       <ul class="sidebar-menu">
         <li class="header">МЕНЮ</li>
-        <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
         <li class="treeview">
@@ -123,9 +131,27 @@ desired effect
     <section class="content">
 
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-lg-2 col-md-1 hidden-xs"></div>
+        <div class="col-12 col-lg-6" style="margin-top: 5em;">
           <canvas id="sens1_temp">
           </canvas>
+        </div>
+        <div class="col-12 col-lg-2" style="margin-top: 5em;">
+          <div class="box box-solid box-default">
+            <div class="box-header">
+            Управление розеткой
+            </div>
+              <div class="box-body roz_turned_off" id="roz">
+                <center>
+                <div class="btn btn-primary" id="roz_on">
+                    Включить розетку
+                </div>
+                <div class="btn btn-danger" id="roz_off">
+                    Вылючить розетку
+                </div>
+              </div>
+            </center>
+          </div>
         </div>
       </div>
 

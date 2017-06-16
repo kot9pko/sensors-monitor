@@ -5,6 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
+var request = require('request');
 
 var db;
 
@@ -34,7 +35,7 @@ MongoClient.connect("mongodb://localhost:27017/sensor_test", function(err, conne
 });
 
 app.get('/', function (req, res) {
-  cursor = db.collection('sensors').find({}).sort({time: -1}).limit(10);
+  cursor = db.collection('sensors').find({}).sort({time: -1}).limit(1);
   
   var text = 'Last 10 sensor measurings: <br>\n'
   
@@ -87,3 +88,10 @@ app.post('/sensors', function (req, res) {
   res.send("yay");
 });
 
+app.post('/roz_on', function (req, res) {
+  request('http://192.168.43.128/switch/0/on')
+});
+
+app.post('/roz_off', function (req, res) {
+  request('http://192.168.43.128/switch/0/off')
+});
